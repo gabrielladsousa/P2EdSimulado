@@ -283,7 +283,22 @@ void exibirElementosArvore(NO* no, int qtEspacos)
 
 void exibirElementosEmOrdem(NO* no)
 {
-	
+	if(no == NULL) {
+		cout << "ARVORE VAZIA!\n";
+	}
+	else {
+		if (no->esq == NULL) {
+			cout << no->valor << endl;
+			return;
+		}
+		else{
+			exibirElementosEmOrdem(no->esq);
+			cout << no->valor << endl;
+			if (no->dir != NULL) {
+				exibirElementosEmOrdem(no->dir);
+			}
+		}
+	}
 }
 
 void buscarElementoArvore(NO* no, int valor)
